@@ -2,6 +2,7 @@
 Demo of using Helmet to include existing Javascripts.
 
 Required Package
+
 npm install --save react-helmet
 
-Credits: https://heartrateleaderboard.netlify.app/
+Credits of copy.js and fft.js belong to https://heartrateleaderboard.netlify.app/
