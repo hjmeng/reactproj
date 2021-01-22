@@ -75,7 +75,7 @@ async function setupCamera() {
 
     })
     .catch(err => console.error('getUserMedia() failed: ', err));
-    console.log('setuep cmaera done');
+    console.log('setup camera done');
 }
 
 async function loadCanvas(){
