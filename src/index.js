@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-
-import TodoContainer from "./components/TodoContainer"
-ReactDOM.render(<TodoContainer />, document.getElementById("root"))
+import HeartRateContainer from "./components/HeartRateContainer"
+ReactDOM.render(<HeartRateContainer />, document.getElementById("root"))
