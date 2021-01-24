@@ -73,14 +73,7 @@ function Utils(errorOutputId) { // eslint-disable-line no-unused-vars
 
         try {
             this.clearError();
-	    //            let code = document.getElementById(textAreaId).value;
-	    //            eval(code);
-	    processVideo();
-
-	    // schedule the first one.
-	    setTimeout(processVideo, 0);
-
-
+	    ProcessVideo();
 	    
         } catch (err) {
             this.printError(err);
@@ -182,13 +175,18 @@ function Utils(errorOutputId) { // eslint-disable-line no-unused-vars
 
 let utils = new Utils('errorMessage');
 
-//utils.loadCode('codeSnippet', 'codeEditor');
+
+
+
+
 
 let streaming = false;
 let videoInput = document.getElementById('videoInput');
 let startAndStop = document.getElementById('startAndStop');
 let canvasOutput = document.getElementById('canvasOutput');
 let canvasContext = canvasOutput.getContext('2d');
+
+
 
 startAndStop.addEventListener('click', () => {
     if (!streaming) {
@@ -224,4 +222,6 @@ utils.loadOpenCv(() => {
     });
 });
 
+
+//utils.loadCode('codeSnippet', 'codeEditor');
 
