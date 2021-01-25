@@ -175,11 +175,6 @@ function Utils(errorOutputId) { // eslint-disable-line no-unused-vars
 
 let utils = new Utils('errorMessage');
 
-
-
-
-
-
 let streaming = false;
 let videoInput = document.getElementById('videoInput');
 let startAndStop = document.getElementById('startAndStop');
@@ -220,8 +215,12 @@ utils.loadOpenCv(() => {
     utils.createFileFromUrl(faceCascadeFile, faceCascadeFile, () => {
         startAndStop.removeAttribute('disabled');
     });
-});
 
+    let eyeCascadeFile = 'haarcascade_eye.xml';
+    utils.createFileFromUrl(eyeCascadeFile, eyeCascadeFile, () => {
+        startAndStop.removeAttribute('disabled');
+    });
+});
 
 //utils.loadCode('codeSnippet', 'codeEditor');
 
