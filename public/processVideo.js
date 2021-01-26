@@ -34,7 +34,7 @@ function ProcessVideo() {
             let begin = Date.now();
             // start processing.
             cap.read(src);
-            src.copyTo(dst);
+            cv.flip(src, dst,1);
             cv.cvtColor(dst, gray, cv.COLOR_RGBA2GRAY, 0);
             // detect faces.
             face_cascade.detectMultiScale(gray, faces, 1.1, 3, 0, msize, msize);
@@ -42,11 +42,12 @@ function ProcessVideo() {
             for (let i = 0; i < faces.size(); ++i) {
 		let face = faces.get(i);
 		let roi_dst = dst.roi(face);
-		/*
+
 		let point1 = new cv.Point(face.x, face.y);
 		let point2 = new cv.Point(face.x + face.width, face.y + face.height);
 		cv.rectangle(dst, point1, point2, [255, 0, 0, 255]);
 
+		/*
 		let roi_gray = gray.roi(face);
 		eye_cascade.detectMultiScale(roi_gray, eyes);
 		for (let j = 0; j < eyes.size(); ++j) {
@@ -68,7 +69,7 @@ function ProcessVideo() {
 		roi_dst.delete();
 		if (i==0) { break;}
             }
-//            cv.imshow('canvasOutput', dst);
+            cv.imshow('canvasOutput', dst);
 
 
 	    pollctx();

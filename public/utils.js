@@ -178,7 +178,7 @@ let utils = new Utils('errorMessage');
 let streaming = false;
 let videoInput = document.getElementById('videoInput');
 let startAndStop = document.getElementById('startAndStop');
-//let canvasOutput = document.getElementById('canvasOutput');
+let canvasOutput = document.getElementById('canvasOutput');
 //let canvasContext = canvasOutput.getContext('2d');
 
 
@@ -204,7 +204,7 @@ function onVideoStarted() {
 
 function onVideoStopped() {
     streaming = false;
-//    canvasContext.clearRect(0, 0, canvasOutput.width, canvasOutput.height);
+    canvasContext.clearRect(0, 0, canvasOutput.width, canvasOutput.height);
     startAndStop.innerText = 'Start';
 }
 
