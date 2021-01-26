@@ -41,14 +41,13 @@ function ProcessVideo() {
 
             for (let i = 0; i < faces.size(); ++i) {
 		let face = faces.get(i);
-		let roi_gray = gray.roi(face);
 		let roi_dst = dst.roi(face);
+		/*
 		let point1 = new cv.Point(face.x, face.y);
 		let point2 = new cv.Point(face.x + face.width, face.y + face.height);
-		
 		cv.rectangle(dst, point1, point2, [255, 0, 0, 255]);
 
-		/*
+		let roi_gray = gray.roi(face);
 		eye_cascade.detectMultiScale(roi_gray, eyes);
 		for (let j = 0; j < eyes.size(); ++j) {
 		    let eye = eyes.get(j);
@@ -57,13 +56,8 @@ function ProcessVideo() {
 		    cv.rectangle(roi_dst, point1, point2, [0, 0, 255, 255]);
 		    roi_dst.roi(eye).setTo(s); 		    //set eye to black
 		}
-		*/
-		
-		/* Change eye coords to be in image coordinates instead of face coordinates
-		eyes[0].x += face.x;
-		eyes[0].y += face.y;
-		eyes[1].x += face.x;
-		eyes[1].y += face.y;
+
+		roi_gray.delete();
 		*/
 		
 		//Calculate the intensities of the red channel of face ROI
@@ -71,10 +65,10 @@ function ProcessVideo() {
 
 		intensities.push(intensity);
 
-		roi_gray.delete(); roi_dst.delete();
+		roi_dst.delete();
 		if (i==0) { break;}
             }
-            cv.imshow('canvasOutput', dst);
+//            cv.imshow('canvasOutput', dst);
 
 
 	    pollctx();
@@ -139,7 +133,7 @@ function ProcessVideo() {
             heartrate = heartrate + ( maxInd*curPollFreq/arrLen*30 - heartrate)*.01;
             heartrateIndicator = document.getElementById('heartrate')
 	    // need to calibrate again, quick *4 fix for now
-            heartrateIndicator.textContent = "Predicted heartrate: " + Math.round(heartrate)*4 + " BPM"
+            heartrateIndicator.textContent = "Predicted heartrate: " + Math.round(heartrate)*3 + " BPM"
 
 	}
 	t0 = performance.now();

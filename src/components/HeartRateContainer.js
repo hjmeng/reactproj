@@ -21,18 +21,12 @@ class HeartRateContainer extends React.Component {
 			    <td>
 				<video id="videoInput" width="320" height="240"></video>
 			    </td>
-			    <td>
-				<canvas id="canvasOutput" width="320" height="240"></canvas>
-			    </td>
 			</tr>
 		    </thead>
 		    <tbody>
 			<tr>
 			    <td>
 				<div className="caption">videoInput</div>
-			    </td>
-			    <td>
-				<div className="caption">canvasOutput</div>
 			    </td>
 			</tr>
 		    </tbody>
