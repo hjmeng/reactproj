@@ -204,7 +204,7 @@ function onVideoStarted() {
 
 function onVideoStopped() {
     streaming = false;
-    canvasContext.clearRect(0, 0, canvasOutput.width, canvasOutput.height);
+//    canvasContext.clearRect(0, 0, canvasOutput.width, canvasOutput.height);
     startAndStop.innerText = 'Start';
 }
 
