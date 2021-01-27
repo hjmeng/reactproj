@@ -115,6 +115,20 @@ function ProcessVideo() {
     var heartrate;
 
 
+    /* https://stackoverflow.com/questions/4225432/how-to-compute-frequency-of-data-using-fft
+
+       Suppose x[n] = cos(2*pi*f0*n/fs) where f0 is the frequency of your sinusoid in Hertz, n=0:N-1, and fs is the sampling rate of x in samples per second.
+
+       Let X = fft(x). Both x and X have length N. Suppose X has two peaks at n0 and N-n0.
+
+       Then the sinusoid frequency is f0 = fs*n0/N Hertz.
+
+       Example: fs = 8000 samples per second, N = 16000 samples. Therefore, x lasts two seconds long.
+       
+       Suppose X = fft(x) has peaks at 2000 and 14000 (=16000-2000). Therefore, f0 = 8000*2000/16000 = 1000 Hz.
+
+
+     */
     async function pollctx(){
 
 	if (intensities.length > arrLen){
